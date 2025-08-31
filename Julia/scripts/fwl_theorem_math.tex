@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Math Section: Frisch-Waugh-Lovell Theorem}
+\author{High Dimensional Linear Models Assignment}
+\date{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proof}{Proof}
+
+\begin{document}
+
+\maketitle
+
+\section{Math (3 points)}
+
+\subsection{Linear Regression Model}
+
+Consider the linear regression model:
+\begin{equation}
+y = X_1\beta_1 + X_2\beta_2 + u
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $y$ is an $n \times 1$ vector of outcomes
+    \item $X_1$ is an $n \times k_1$ matrix of regressors of interest  
+    \item $X_2$ is an $n \times k_2$ matrix of control variables
+    \item $u$ is an $n \times 1$ vector of errors
+\end{itemize}
+
+\subsection{Frisch-Waugh-Lovell Theorem}
+
+\begin{theorem}[Frisch-Waugh-Lovell Theorem]
+The OLS estimate of $\beta_1$ in the regression of $y$ on $[X_1 \quad X_2]$ is equal to the OLS estimate obtained from the following two-step procedure:
+
+\begin{enumerate}
+    \item Regress $y$ on $X_2$ and obtain the residuals $\tilde{y} = M_{X_2}y$, where $M_{X_2} = I - X_2(X_2'X_2)^{-1}X_2'$
+    \item Regress $X_1$ on $X_2$ and obtain the residuals $\tilde{X_1} = M_{X_2}X_1$  
+    \item Regress $\tilde{y}$ on $\tilde{X_1}$ and show that the resulting coefficient vector is equal to $\hat{\beta_1}$ from the full regression
+\end{enumerate}
+
+Formally, we need to show that:
+\begin{equation}
+\hat{\beta_1} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We will prove the FWL theorem by showing that the two-step partialling-out procedure yields the same coefficient estimate as the full regression.
+
+\textbf{Step 1: Set up the full regression}
+
+The full regression in matrix form is:
+\begin{equation}
+y = [X_1 \quad X_2]\begin{bmatrix} \beta_1 \\ \beta_2 \end{bmatrix} + u = X\beta + u
+\end{equation}
+
+where $X = [X_1 \quad X_2]$ and $\beta = [\beta_1' \quad \beta_2']'$.
+
+The OLS estimator is:
+\begin{equation}
+\hat{\beta} = (X'X)^{-1}X'y
+\end{equation}
+
+\textbf{Step 2: Partition the matrices}
+
+We can partition the matrices as:
+\begin{equation}
+X'X = \begin{bmatrix} X_1'X_1 & X_1'X_2 \\ X_2'X_1 & X_2'X_2 \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+X'y = \begin{bmatrix} X_1'y \\ X_2'y \end{bmatrix}
+\end{equation}
+
+\textbf{Step 3: Apply the partitioned matrix inverse formula}
+
+Using the partitioned matrix inverse formula:
+\begin{equation}
+(X'X)^{-1} = \begin{bmatrix} (X_1'M_{X_2}X_1)^{-1} & -(X_1'M_{X_2}X_1)^{-1}X_1'X_2(X_2'X_2)^{-1} \\ \text{...} & \text{...} \end{bmatrix}
+\end{equation}
+
+where $M_{X_2} = I - X_2(X_2'X_2)^{-1}X_2'$ is the annihilator matrix.
+
+\textbf{Step 4: Extract the coefficient of interest}
+
+From the partitioned inverse, the coefficient estimate for $\beta_1$ is:
+\begin{equation}
+\hat{\beta_1} = (X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y
+\end{equation}
+
+\textbf{Step 5: Show equivalence to the two-step procedure}
+
+Now we show this equals the two-step procedure:
+
+From Step 1 of the procedure: $\tilde{y} = M_{X_2}y$
+
+From Step 2 of the procedure: $\tilde{X_1} = M_{X_2}X_1$
+
+From Step 3 of the procedure:
+\begin{equation}
+\hat{\beta_1}^{FWL} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}
+\end{equation}
+
+Substituting the definitions:
+\begin{align}
+\hat{\beta_1}^{FWL} &= ((M_{X_2}X_1)'(M_{X_2}X_1))^{-1}(M_{X_2}X_1)'(M_{X_2}y) \\
+&= (X_1'M_{X_2}'M_{X_2}X_1)^{-1}X_1'M_{X_2}'M_{X_2}y
+\end{align}
+
+Since $M_{X_2}$ is symmetric and idempotent ($M_{X_2}' = M_{X_2}$ and $M_{X_2}M_{X_2} = M_{X_2}$):
+\begin{align}
+\hat{\beta_1}^{FWL} &= (X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y \\
+&= \hat{\beta_1}
+\end{align}
+
+Therefore, we have shown that:
+\begin{equation}
+\hat{\beta_1} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}
+\end{equation}
+
+This completes the proof of the Frisch-Waugh-Lovell theorem.
+\end{proof}
+
+\subsection{Economic Interpretation}
+
+The FWL theorem demonstrates that we can obtain the same coefficient estimate for $\beta_1$ by:
+\begin{enumerate}
+    \item "Partialling out" the effect of $X_2$ from both $y$ and $X_1$
+    \item Running a simple regression on the residuals
+\end{enumerate}
+
+This is particularly useful for:
+\begin{itemize}
+    \item Understanding the role of control variables
+    \item Computational efficiency in high-dimensional settings
+    \item Theoretical analysis of partial correlation
+\end{itemize}
+
+\end{document}
