@@ -1,8 +1,8 @@
 metric,value
-n_apartments_end_0,194.0
-avg_actual_price,91513.5808691558
-avg_predicted_price,85076.95549045697
-premium_amount,6436.625378698838
-premium_percentage,7.565650817653942
-t_statistic,4.338767527553657
-p_value,2.3082817628600808e-05
+n_apartments_end_0,12205.0
+avg_actual_price,875594.8312167145
+avg_predicted_price,859431.0338219992
+premium_amount,16163.79739471525
+premium_percentage,1.8807556113994144
+t_statistic,5.870887697494751
+p_value,4.447452395453568e-09
