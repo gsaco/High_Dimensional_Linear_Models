@@ -1,0 +1,4 @@
+"Metric","Maximum_Value","Optimal_Features"
+"R² (Full Sample)",0.808193800919304,1000
+"Adjusted R² (Full)",0.806593258566794,1
+"R² (Out-of-Sample)",0.799522212980936,1
