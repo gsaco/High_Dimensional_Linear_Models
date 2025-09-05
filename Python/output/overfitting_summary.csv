@@ -1,4 +1,4 @@
 Metric,Maximum Value,Optimal # Features
-R² (Full Sample),0.7901678029917732,1000
-Adjusted R² (Full),0.7867834109203462,2
-R² (Out-of-Sample),0.7911132713349147,2
+R² (Full Sample),0.9951254663990952,1000
+Adjusted R² (Full),0.9949161807086598,20
+R² (Out-of-Sample),0.9958909016700981,20
