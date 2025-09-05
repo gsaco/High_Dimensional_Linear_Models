@@ -1,9 +1,9 @@
 """
 Part 2: Overfitting Analysis
-Module containing functions for overfitting analysis with correct data generation process.
+Module containing functions for overfitting analysis with corrected data generation process.
 
-This module implements the overfitting analysis following the class example:
-y = np.exp(4 * W) + e
+This module implements the overfitting analysis following the assignment specification:
+y = 2*x + e (no intercept, simple linear relationship)
 
 Author: Generated for gsaco/High_Dimensional_Linear_Models
 """
@@ -23,8 +23,8 @@ warnings.filterwarnings('ignore')
 
 def generate_data(n=1000, seed=42):
     """
-    Generate data following the class example specification:
-    y = np.exp(4 * W) + e
+    Generate data following the assignment specification:
+    y = 2*x + e (no intercept, simple linear relationship)
     
     Parameters:
     -----------
@@ -35,50 +35,50 @@ def generate_data(n=1000, seed=42):
         
     Returns:
     --------
-    W : numpy.ndarray
-        Feature matrix (n x 1) - sorted uniform random variables
+    x : numpy.ndarray
+        Feature matrix (n x 1) - sorted uniform random variables  
     y : numpy.ndarray
-        Target variable (n,) following y = exp(4*W) + e
+        Target variable (n,) following y = 2*x + e (no intercept)
     """
     np.random.seed(seed)
     
-    # Generate W from uniform distribution and sort (as in class example)
-    W = np.random.uniform(0, 1, n)
-    W.sort()
-    W = W.reshape(-1, 1)
+    # Generate x from uniform distribution and sort
+    x = np.random.uniform(0, 1, n)
+    x.sort()
+    x = x.reshape(-1, 1)
     
     # Generate error term
     e = np.random.normal(0, 1, n)
     
-    # Generate y following class example: y = exp(4*W) + e
-    y = np.exp(4 * W.ravel()) + e
+    # Generate y with simple linear relationship (no intercept): y = 2*x + e
+    y = 2.0 * x.ravel() + e
     
-    return W, y
+    return x, y
 
 
-def create_polynomial_features(W, n_features):
+def create_polynomial_features(x, n_features):
     """
     Create polynomial features up to n_features.
     
     Parameters:
     -----------
-    W : numpy.ndarray
+    x : numpy.ndarray
         Original feature matrix (n x 1)
     n_features : int
         Number of features to create
         
     Returns:
     --------
-    W_poly : numpy.ndarray
+    x_poly : numpy.ndarray
         Extended feature matrix with polynomial features
     """
-    n_samples = W.shape[0]
-    W_poly = np.zeros((n_samples, n_features))
+    n_samples = x.shape[0]
+    x_poly = np.zeros((n_samples, n_features))
     
     for i in range(n_features):
-        W_poly[:, i] = W.ravel() ** (i + 1)  # W^1, W^2, W^3, etc.
+        x_poly[:, i] = x.ravel() ** (i + 1)  # x^1, x^2, x^3, etc.
     
-    return W_poly
+    return x_poly
 
 
 def calculate_adjusted_r2(r2, n, k):
@@ -118,14 +118,14 @@ def overfitting_analysis():
     results_df : pandas.DataFrame
         DataFrame containing results for different numbers of features
     """
-    print("Generating data following class example: y = exp(4*W) + e")
+    print("Generating data following assignment specification: y = 2*x + e (no intercept)")
     
-    # Generate the data following class example
-    W, y = generate_data(n=1000, seed=42)
+    # Generate the data following assignment specification
+    x, y = generate_data(n=1000, seed=42)
     
     print(f"Generated data with n={len(y)} observations")
-    print(f"True relationship: y = exp(4*W) + e")
-    print(f"W range: [{W.min():.4f}, {W.max():.4f}]")
+    print(f"True relationship: y = 2*x + e (no intercept)")
+    print(f"x range: [{x.min():.4f}, {x.max():.4f}]")
     print(f"y range: [{y.min():.4f}, {y.max():.4f}]")
     
     # Number of features to test (as specified)
@@ -141,26 +141,26 @@ def overfitting_analysis():
     for n_feat in n_features_list:
         try:
             # Create polynomial features
-            W_poly = create_polynomial_features(W, n_feat)
+            x_poly = create_polynomial_features(x, n_feat)
             
             # Split data into train/test (75%/25%)
-            W_train, W_test, y_train, y_test = train_test_split(
-                W_poly, y, test_size=0.25, random_state=42
+            x_train, x_test, y_train, y_test = train_test_split(
+                x_poly, y, test_size=0.25, random_state=42
             )
             
-            # Fit model on full sample (with intercept for proper estimation)
-            model_full = LinearRegression(fit_intercept=True)
-            model_full.fit(W_poly, y)
-            y_pred_full = model_full.predict(W_poly)
+            # Fit model on full sample (WITHOUT intercept as requested)
+            model_full = LinearRegression(fit_intercept=False)
+            model_full.fit(x_poly, y)
+            y_pred_full = model_full.predict(x_poly)
             r2_full = r2_score(y, y_pred_full)
             
             # Calculate adjusted R²
             adj_r2_full = calculate_adjusted_r2(r2_full, len(y), n_feat)
             
-            # Fit model on training data and predict on test data
-            model_train = LinearRegression(fit_intercept=True)
-            model_train.fit(W_train, y_train)
-            y_pred_test = model_train.predict(W_test)
+            # Fit model on training data and predict on test data (WITHOUT intercept)
+            model_train = LinearRegression(fit_intercept=False)
+            model_train.fit(x_train, y_train)
+            y_pred_test = model_train.predict(x_test)
             r2_out_of_sample = r2_score(y_test, y_pred_test)
             
             # Store results
@@ -273,7 +273,7 @@ def interpret_results(results_df):
     print("📈 R² (Full Sample) should increase monotonically with model complexity")
     print("📊 Adjusted R² should peak early and then decline due to complexity penalty")
     print("📉 Out-of-Sample R² should show the inverted U-shape characteristic of overfitting")
-    print("🎯 True model follows: y = exp(4*W) + e")
+    print("🎯 True model follows: y = 2*x + e (no intercept)")
     print("⚠️ High-dimensional models (many features) lead to severe overfitting")
     
     # Save results
@@ -289,7 +289,7 @@ def main():
     """
     print("=" * 80)
     print("PART 2: OVERFITTING ANALYSIS")
-    print("Following class example: y = exp(4*W) + e")
+    print("Following assignment specification: y = 2*x + e (no intercept)")
     print("=" * 80)
     
     # Run the analysis
