@@ -15,20 +15,23 @@ The repository is organized by programming language, with each implementation pr
 
 ```
 High_Dimensional_Linear_Models/
-├── Python/           # Python implementation
-│   ├── input/       # Data files
-│   ├── output/      # Results and visualizations  
-│   └── scripts/     # Jupyter notebooks
-├── R/               # R implementation
-│   ├── input/       # Data files
-│   ├── output/      # Results and visualizations
-│   └── scripts/     # R notebooks
-├── Julia/           # Julia implementation
-│   ├── input/       # Data files
-│   ├── output/      # Results and visualizations
-│   └── scripts/     # Julia notebooks
-├── requirements.txt # Python dependencies
-└── README.md       # This file
+├── Python/             # Python implementation
+│   ├── input/         # Data files
+│   ├── output/        # Results, CSV files, and PNG plots  
+│   ├── scripts/       # Jupyter notebooks
+│   └── requirements.txt  # Python dependencies
+├── R/                 # R implementation
+│   ├── input/         # Data files
+│   ├── output/        # Results, CSV files, and PNG plots
+│   ├── scripts/       # R notebooks
+│   └── requirements.txt  # R dependencies
+├── Julia/             # Julia implementation
+│   ├── input/         # Data files
+│   ├── output/        # Results, CSV files, and PNG plots
+│   ├── scripts/       # Julia notebooks
+│   └── requirements.txt  # Julia dependencies
+├── requirements.txt   # Python dependencies (legacy)
+└── README.md         # This file
 ```
 
 ## 🎯 Analytical Components
@@ -49,6 +52,24 @@ High_Dimensional_Linear_Models/
   - Premium is **statistically significant** (p < 0.001), indicating systematic pricing behavior
   - Results suggest psychological anchoring effects in real estate valuation
 
+## 📊 Outputs & Visualizations
+
+When you run the scripts, all results are automatically saved to each language's `output/` directory:
+
+### Generated Files
+- **CSV Files**: Statistical results, cleaned data, regression outputs
+- **PNG Plots**: High-resolution visualizations (300 DPI)
+  - `r2_full_sample.png` - R-squared on full sample vs features
+  - `adj_r2_full_sample.png` - Adjusted R-squared vs features  
+  - `r2_out_of_sample.png` - Out-of-sample R-squared vs features
+  - `hedonic_pricing_analysis.png` - Real estate pricing analysis plots
+
+### Language-Specific Dependencies
+Each language folder contains its own `requirements.txt`:
+- **Python/requirements.txt**: NumPy, Pandas, Matplotlib, Scikit-learn, etc.
+- **R/requirements.txt**: dplyr, ggplot2, MASS, readr, etc.
+- **Julia/requirements.txt**: DataFrames, Plots, GLM, StatsPlots, etc.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -62,9 +83,9 @@ Ensure you have one of the following installed:
 #### Python
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+pip install -r Python/requirements.txt
 
-# Run analyses
+# Run analyses (plots are automatically saved to Python/output/)
 cd Python/scripts/
 jupyter notebook part2_overfitting.ipynb
 jupyter notebook part3_hedonic_pricing.ipynb
@@ -72,21 +93,20 @@ jupyter notebook part3_hedonic_pricing.ipynb
 
 #### R
 ```bash
-# Install required packages (run in R console)
-install.packages(c("dplyr", "ggplot2", "readr", "broom"))
+# Install required packages (see R/requirements.txt for full list)
+R -e "install.packages(c('dplyr', 'ggplot2', 'MASS', 'readr', 'broom'))"
 
-# Run analyses  
+# Run analyses (plots are automatically saved to R/output/)
 cd R/scripts/
 # Open .ipynb files in Jupyter with R kernel or RStudio
 ```
 
 #### Julia
 ```bash
-# Install packages (run in Julia REPL)
-using Pkg
-Pkg.add(["DataFrames", "CSV", "GLM", "Plots", "StatsPlots"])
+# Install packages (see Julia/requirements.txt for full list)
+julia -e "using Pkg; Pkg.add([\"DataFrames\", \"CSV\", \"GLM\", \"Plots\", \"StatsPlots\"])"
 
-# Run analyses
+# Run analyses (plots are automatically saved to Julia/output/)
 cd Julia/scripts/  
 # Open .ipynb files in Jupyter with Julia kernel
 ```
