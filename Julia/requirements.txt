@@ -1,0 +1,29 @@
+# Julia Dependencies for High Dimensional Linear Models
+# Core packages
+LinearAlgebra
+Random
+Printf
+Statistics
+StatsBase
+
+# Data manipulation and analysis
+DataFrames>=1.3.0
+CSV>=0.10.0
+
+# Statistical modeling and hypothesis testing
+GLM>=1.8.0
+HypothesisTests>=0.10.0
+StatsModels>=0.6.0
+
+# Data visualization
+Plots>=1.35.0
+StatsPlots>=0.15.0
+
+# Additional utilities
+Distributions>=0.25.0    # Statistical distributions
+MLBase>=0.9.0           # Machine learning utilities
+MLJ>=0.18.0             # Machine learning framework
+
+# Linear algebra and optimization
+Optim>=1.7.0            # Optimization algorithms
+ForwardDiff>=0.10.0     # Automatic differentiation
