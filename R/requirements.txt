@@ -1,0 +1,21 @@
+# R Dependencies for High Dimensional Linear Models
+# Core data manipulation and statistical modeling
+dplyr>=1.0.0
+MASS>=7.3-0
+
+# Data visualization
+ggplot2>=3.3.0
+
+# Statistical analysis and modeling
+stats>=4.0.0
+Matrix>=1.3-0
+
+# Additional utilities for data handling
+readr>=2.0.0      # Data import/export
+tidyr>=1.1.0      # Data tidying
+broom>=0.7.0      # Statistical model output handling
+
+# Linear modeling and econometrics
+lmtest>=0.9-0     # Linear model testing
+sandwich>=3.0-0   # Robust standard errors
+car>=3.0-0        # Companion to Applied Regression

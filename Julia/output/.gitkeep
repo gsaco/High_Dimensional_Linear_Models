@@ -1,0 +1,2 @@
+# This file ensures the output directory is tracked by git
+# Generated files (figures, tables, datasets) from Julia scripts go here
