@@ -30,7 +30,6 @@ High_Dimensional_Linear_Models/
 │   ├── output/        # Results, CSV files, and PNG plots
 │   ├── scripts/       # Julia notebooks
 │   └── requirements.txt  # Julia dependencies
-├── requirements.txt   # Python dependencies (legacy)
 └── README.md         # This file
 ```
 
