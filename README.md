@@ -121,8 +121,6 @@ cd Julia/scripts/
 | 50       | 0.995     | 0.995         | 0.995            |
 | 1000     | 0.995     | NaN           | 0.995            |
 
-**Interpretation**: The analysis reveals classical overfitting patterns where standard R² misleadingly suggests improvement with complexity, while adjusted R² and out-of-sample performance provide more reliable model selection guidance.
-
 ### Hedonic Pricing Results
 - **Dataset**: 110,191 Polish apartment listings
 - **Price Premium for "Round" Areas**: +16,164 PLN (+1.88%)
