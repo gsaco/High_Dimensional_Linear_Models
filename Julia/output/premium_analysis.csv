@@ -1,0 +1,8 @@
+metric,value
+n_apartments_end_0,12651.0
+avg_actual_price,873616.2969725713
+avg_predicted_price,860404.1559835911
+premium_amount,13212.140988980187
+premium_percentage,1.5355738227317626
+t_statistic,4.6613161899072635
+p_value,3.1740305434732614e-6
