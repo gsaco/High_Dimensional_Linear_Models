@@ -7,7 +7,7 @@
 
 ## Overview
 
-This repository contains comprehensive implementations of advanced econometric analyses for high-dimensional linear models in **three programming languages**. The project demonstrates key concepts in causal inference, machine learning, and econometric modeling through practical applications.
+This repository contains implementations of econometric analyses for high-dimensional linear models in **three programming languages**
 
 ## 📊 Project Structure
 
@@ -39,24 +39,21 @@ High_Dimensional_Linear_Models/
 - **Objective**: Provide rigorous mathematical proof of the equivalence between full regression and partialling-out procedures
 - **Method**: Employ partitioned matrix algebra and block matrix inversion to demonstrate coefficient equivalence
 - **Key Findings**: 
-  - **Mathematical equivalence established**: $\hat{\beta_1} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}$ where residuals are obtained by projecting out control variables
-  - **Fundamental identity proven**: $(X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y$ yields identical coefficients regardless of estimation sequence
+  - $\hat{\beta_1} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}$ where residuals are obtained by projecting out control variables
+  - $(X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y$ yields identical coefficients regardless of estimation sequence
     
 ### Part 2: Overfitting Analysis (8 points)
-- **Objective**: Demonstrate bias-variance tradeoff through polynomial feature expansion
+- **Objective**: Demonstrate overfitting through polynomial feature expansion
 - **Method**: Simulate data with exponential relationship and analyze R² metrics across increasing model complexity
 - **Key Findings**: 
   - R² on full sample increases monotonically with features (0.725 → 0.995)
-  - Adjusted R² peaks at moderate complexity then declines due to overfitting
-  - Out-of-sample R² stabilizes around 0.995, showing optimal model complexity
 
 ### Part 3: Hedonic Pricing Model (9 points)  
-- **Objective**: Investigate psychological pricing effects in Polish real estate market
+- **Objective**: Investigate pricing effects in Polish real estate market
 - **Method**: Analyze 110,191 apartment listings using hedonic regression with area-digit dummies
 - **Key Findings**:
   - Apartments with areas ending in "0" command a **1.88% price premium** (16,164 PLN)
   - Premium is **statistically significant** (p < 0.001), indicating systematic pricing behavior
-  - Results suggest psychological anchoring effects in real estate valuation
 
 ## 📊 Outputs & Visualizations
 
