@@ -7,7 +7,7 @@
 
 ## Overview
 
-This repository contains implementations of econometric analyses for high-dimensional linear models in **three programming languages**
+This repository contains implementations of econometric analyses for high-dimensional linear models in **three programming languages**.
 
 ## 📊 Project Structure
 
