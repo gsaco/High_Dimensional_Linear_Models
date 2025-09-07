@@ -117,24 +117,6 @@ julia -e "using Pkg; Pkg.add([\"DataFrames\", \"CSV\", \"GLM\", \"Plots\", \"Sta
 cd Julia/scripts/  
 # Open .ipynb files in Jupyter with Julia kernel
 ```
-
-## 📈 Key Results & Insights
-
-### Overfitting Analysis Results
-| Features | R² (Full) | Adj R² (Full) | R² (Out-of-Sample) |
-|----------|-----------|---------------|-------------------|
-| 1        | 0.725     | 0.725         | 0.716            |
-| 2        | 0.964     | 0.963         | 0.966            |
-| 5        | 0.995     | 0.995         | 0.995            |
-| 50       | 0.995     | 0.995         | 0.995            |
-| 1000     | 0.995     | NaN           | 0.995            |
-
-### Hedonic Pricing Results
-- **Dataset**: 110,191 Polish apartment listings
-- **Price Premium for "Round" Areas**: +16,164 PLN (+1.88%)
-- **Statistical Significance**: t = 5.87, p < 0.001
-- **Economic Interpretation**: Evidence of psychological pricing effects in real estate markets
-
 ## 🛠️ Technical Implementation
 
 ### Dependencies
