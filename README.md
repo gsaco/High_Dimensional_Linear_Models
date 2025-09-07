@@ -35,7 +35,7 @@ High_Dimensional_Linear_Models/
 
 ## 🎯 Analytical Components
 
-### Part 1: Frisch-Waugh-Lovell Theorem (8 points)
+### Part 1: Frisch-Waugh-Lovell Theorem (3 points)
 - **Objective**: Provide rigorous mathematical proof of the equivalence between full regression and partialling-out procedures
 - **Method**: Employ partitioned matrix algebra and block matrix inversion to demonstrate coefficient equivalence across estimation approaches
 - **Key Findings**: 
