@@ -35,6 +35,14 @@ High_Dimensional_Linear_Models/
 
 ## 🎯 Analytical Components
 
+### Part 1: Frisch-Waugh-Lovell Theorem (8 points)
+- **Objective**: Provide rigorous mathematical proof of the equivalence between full regression and partialling-out procedures
+- **Method**: Employ partitioned matrix algebra and block matrix inversion to demonstrate coefficient equivalence across estimation approaches
+- **Key Findings**: 
+  - **Mathematical equivalence established**: $\hat{\beta_1} = (\tilde{X_1}'\tilde{X_1})^{-1}\tilde{X_1}'\tilde{y}$ where residuals are obtained by projecting out control variables
+  - **Fundamental identity proven**: $(X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y$ yields identical coefficients regardless of estimation sequence
+  - **Theoretical foundation demonstrated** for computational efficiency and causal identification strategies in high-dimensional settings
+    
 ### Part 2: Overfitting Analysis (8 points)
 - **Objective**: Demonstrate bias-variance tradeoff through polynomial feature expansion
 - **Method**: Simulate data with exponential relationship and analyze R² metrics across increasing model complexity
