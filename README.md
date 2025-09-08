@@ -124,7 +124,7 @@ cd Julia/scripts/
 - **Overfitting Analysis**: Simulated exponential data (n=1,000)
 - **Hedonic Pricing**: Real Polish apartment data (110,191 observations)
 
-## JUSTIFICATION OF EACH STEP OF OUR PROJECT
+## Justification of each step for Part 3 📚
 
 ### The Missing Values Challenge: A Methodological Decision
 
