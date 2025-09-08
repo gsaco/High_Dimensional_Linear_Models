@@ -124,7 +124,7 @@ cd Julia/scripts/
 - **Overfitting Analysis**: Simulated exponential data (n=1,000)
 - **Hedonic Pricing**: Real Polish apartment data (110,191 observations)
 
-## Critical Data Quality Discovery and Its Impact on Psychological Pricing Analysis
+## JUSTIFICATION OF EACH STEP OF OUR PROJECT
 
 ### The Missing Values Challenge: A Methodological Decision
 
