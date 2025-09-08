@@ -199,27 +199,6 @@ To test whether the premium represents psychological pricing rather than omitted
 - **p-value**: 2.03×10⁻⁹
 - **Conclusion**: The premium is statistically significant
 
----
-
-## Cross-Language Implementation: Methodological Consistency
-
-### **Uniform Data Treatment**
-To ensure consistent results across programming languages, we implemented identical complete case analysis:
-
-**Python Implementation:** pandas `.notna().all(axis=1)` for complete cases
-**R Implementation:** `complete.cases()` function for missing value removal  
-**Julia Implementation:** `dropmissing()` for data cleaning
-
-### **Validation Results**
-All three implementations produced identical results:
-- **Sample size**: 59,317 observations
-- **end_0 coefficient**: 25,147.12 PLN  
-- **Premium estimate**: 25,324 PLN (+2.98%)
-- **Statistical significance**: p < 2×10⁻⁹
-
-This consistency across Python, R, and Julia validates our findings and demonstrates the robustness of the results.
-
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
