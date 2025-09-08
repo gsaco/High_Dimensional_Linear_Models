@@ -52,7 +52,7 @@ High_Dimensional_Linear_Models/
 - **Objective**: Investigate pricing effects in Polish real estate market
 - **Method**: Analyze 110,191 apartment listings using hedonic regression with area-digit dummies
 - **Key Findings**:
-  - Apartments with areas ending in "0" command a **1.88% price premium** (16,164 PLN)
+  - Apartments with areas ending in "0" command a **+2.98% price premium** (25,324 PLN)
   - Premium is **statistically significant** (p < 0.001), indicating systematic pricing behavior
 
 ## 📊 Outputs & Visualizations
