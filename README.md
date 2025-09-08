@@ -43,7 +43,7 @@ High_Dimensional_Linear_Models/
   - $(X_1'M_{X_2}X_1)^{-1}X_1'M_{X_2}y$ yields identical coefficients regardless of estimation sequence
     
 ### Part 2: Overfitting Analysis (8 points)
-- **Objective**: Demonstrate overfitting through polynomial feature expansion
+- **Objective**: Demonstrate overfitting through polynomial feature expansion using Alberto's PGD and distributions from the PD
 - **Method**: Simulate data with exponential relationship and analyze R² metrics across increasing model complexity
 - **Key Findings**: 
   - R² on full sample increases monotonically with features (0.725 → 0.995)
