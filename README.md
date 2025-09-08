@@ -219,8 +219,6 @@ All three implementations produced identical results:
 
 This consistency across Python, R, and Julia validates our findings and demonstrates the robustness of the results.
 
-**✅ Analysis Complete: Evidence of pricing premium for apartments with round-numbered areas, validated across
-
 
 ## 📄 License
 
